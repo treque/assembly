@@ -1,0 +1,90 @@
+Electric Version 8.05
+--------------- 0 --------------
+  Mon Feb 12 17:47:02 EST 2018
+Menu Activated: File | Open Library...
+--------------- 1 --------------
+  Mon Feb 12 17:29:27 EST 2018
+Menu Activated: Tool | Simulation (Built-in) | ALS: Simulate Current Cell
+--------------- 2 --------------
+  Mon Feb 12 17:29:32 EST 2018
+Menu Activated: Tool | Simulation (Built-in) | Restore Stimuli from Disk...
+--------------- 3 --------------
+  Mon Feb 12 17:29:39 EST 2018
+ProcessKeyBinding 401 when=1518474579689 modifiers=80 code=11 char=ffff false false
+--------------- 4 --------------
+  Mon Feb 12 17:29:39 EST 2018
+ProcessKeyBinding 401 when=1518474579864 modifiers=80 code=36 char=36(6) false false
+--------------- 5 --------------
+  Mon Feb 12 17:29:39 EST 2018
+Menu Activated: Window | Pan Right
+--------------- 6 --------------
+  Mon Feb 12 17:29:39 EST 2018
+ProcessKeyBinding 400 when=1518474579864 modifiers=80 code=0 char=36(6) false false
+--------------- 7 --------------
+  Mon Feb 12 17:29:39 EST 2018
+ProcessKeyBinding 402 when=1518474579929 modifiers=80 code=36 char=36(6) false false
+--------------- 8 --------------
+  Mon Feb 12 17:29:40 EST 2018
+ProcessKeyBinding 402 when=1518474580049 modifiers=0 code=11 char=ffff false false
+--------------- 9 --------------
+  Mon Feb 12 17:29:43 EST 2018
+Menu Activated: Tool | Simulation (Built-in) | Update Simulation Window
+--------------- 10 --------------
+  Mon Feb 12 17:29:48 EST 2018
+ProcessKeyBinding 401 when=1518474588928 modifiers=80 code=11 char=ffff false false
+--------------- 11 --------------
+  Mon Feb 12 17:29:49 EST 2018
+ProcessKeyBinding 401 when=1518474589025 modifiers=80 code=36 char=36(6) false false
+--------------- 12 --------------
+  Mon Feb 12 17:29:49 EST 2018
+Menu Activated: Window | Pan Right
+--------------- 13 --------------
+  Mon Feb 12 17:29:49 EST 2018
+ProcessKeyBinding 400 when=1518474589025 modifiers=80 code=0 char=36(6) false false
+--------------- 14 --------------
+  Mon Feb 12 17:29:49 EST 2018
+ProcessKeyBinding 402 when=1518474589088 modifiers=80 code=36 char=36(6) false false
+--------------- 15 --------------
+  Mon Feb 12 17:29:49 EST 2018
+ProcessKeyBinding 402 when=1518474589208 modifiers=0 code=11 char=ffff false false
+--------------- 16 --------------
+  Mon Feb 12 17:29:55 EST 2018
+Menu Activated: Tool | Simulation (Built-in) | Update Simulation Window
+--------------- 17 --------------
+  Mon Feb 12 17:30:09 EST 2018
+Menu Activated: Edit | Modes | Edit | Toggle Pan
+--------------- 18 --------------
+  Mon Feb 12 17:35:51 EST 2018
+Menu Activated: Edit | Modes | Edit | Click/Zoom/Wire
+--------------- 19 --------------
+  Mon Feb 12 17:39:08 EST 2018
+Menu Activated: Edit | Modes | Edit | Toggle Zoom
+--------------- 20 --------------
+  Mon Feb 12 17:39:11 EST 2018
+Menu Activated: Edit | Modes | Edit | Click/Zoom/Wire
+--------------- 21 --------------
+  Mon Feb 12 17:39:12 EST 2018
+Menu Activated: Edit | Modes | Edit | Toggle Pan
+--------------- 22 --------------
+  Mon Feb 12 17:39:20 EST 2018
+ProcessKeyBinding 401 when=1518475160363 modifiers=80 code=11 char=ffff false false
+--------------- 23 --------------
+  Mon Feb 12 17:39:20 EST 2018
+ProcessKeyBinding 401 when=1518475160475 modifiers=80 code=39 char=39(9) false false
+--------------- 24 --------------
+  Mon Feb 12 17:39:20 EST 2018
+Menu Activated: Window | Fill Window
+--------------- 25 --------------
+  Mon Feb 12 17:39:20 EST 2018
+ProcessKeyBinding 400 when=1518475160475 modifiers=80 code=0 char=39(9) false false
+--------------- 26 --------------
+  Mon Feb 12 17:39:20 EST 2018
+ProcessKeyBinding 402 when=1518475160563 modifiers=80 code=39 char=39(9) false false
+--------------- 27 --------------
+  Mon Feb 12 17:39:20 EST 2018
+ProcessKeyBinding 402 when=1518475160627 modifiers=0 code=11 char=ffff false false
+--------------- 28 --------------
+  Mon Feb 12 17:41:27 EST 2018
+Menu Activated: Edit | Modes | Edit | Click/Zoom/Wire
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'ALU{sch}': , 'shift32{ic}[shift32@0].o[31:0]'

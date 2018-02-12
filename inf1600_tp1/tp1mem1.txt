@@ -1,0 +1,9 @@
+# INF1600 - TP1
+# Memoire d'instructions (les nombres sont en hexadecimal et l'adresse en octets)
+#
+# Le premier nombre de chaque ligne est l'adresse, puis une sequence de nombres
+# indique le contenu de chaque octet a partir de cette adresse.
+
+0	23 00 2D 02
+
+00000000 001 011 010 00000000
