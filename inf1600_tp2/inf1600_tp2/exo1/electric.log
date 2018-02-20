@@ -1,0 +1,25 @@
+Electric Version 8.05
+--------------- 0 --------------
+  Mon Feb 19 20:03:30 EST 2018
+Menu Activated: File | Open Library...
+--------------- 1 --------------
+  Mon Feb 19 20:03:38 EST 2018
+ProcessKeyBinding 401 when=1519088618680 modifiers=80 code=11 char=ffff false false
+--------------- 2 --------------
+  Mon Feb 19 20:03:40 EST 2018
+ProcessKeyBinding 402 when=1519088620496 modifiers=0 code=11 char=ffff false false
+--------------- 3 --------------
+  Mon Feb 19 20:03:45 EST 2018
+ProcessKeyBinding 401 when=1519088625712 modifiers=80 code=11 char=ffff false false
+--------------- 4 --------------
+  Mon Feb 19 20:03:45 EST 2018
+ProcessKeyBinding 402 when=1519088625880 modifiers=0 code=11 char=ffff false false
+--------------- 5 --------------
+  Mon Feb 19 20:04:14 EST 2018
+Menu Activated: Edit | Modes | Edit | Toggle Zoom
+--------------- 6 --------------
+  Mon Feb 19 20:04:29 EST 2018
+Menu Activated: Edit | Modes | Edit | Toggle Pan
+--------------- 7 --------------
+  Mon Feb 19 20:14:29 EST 2018
+Menu Activated: Edit | Modes | Edit | Click/Zoom/Wire
