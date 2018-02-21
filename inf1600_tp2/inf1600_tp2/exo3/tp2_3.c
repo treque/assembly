@@ -45,7 +45,7 @@ int main(void) {
 	c = INIT_C;
 	d = INIT_D;
 	e = INIT_E;
-	//func_s();
+	func_s();
 	printf("Version en assembleur : %i\n", a);
 	a = INIT_A;
 	b = INIT_B;
