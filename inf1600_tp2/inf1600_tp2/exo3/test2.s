@@ -1,3 +1,4 @@
+
 .data
 	i:
 		.int 0
@@ -7,6 +8,7 @@
 .global func_s
 
 func_s:
+
 	boucle:
         	mov i, %eax
 		mov max, %ebx

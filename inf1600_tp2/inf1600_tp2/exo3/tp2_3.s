@@ -1,47 +1,70 @@
 .data
-	i: .int 0
-	max: .int 10
+	i: 
+		.int 0
+
 .global func_s
 
 func_s:
+	
+	jmp next
 
-	boucle:	mov i, %eax
-		cmp max, %eax	#comparaison pour la continuation ou l'arret de la boucle 
-		ja done
+	boucle:
 		
-		mov a, %eax
+		add $1, %edi
+		mov %edi, i
+
 		mov b, %ebx
-		mov c, %ecx
 		mov d, %edx
-
-		mov d, %eax
-		add e, %eax
-		sub b, %eax
+		mov e, %eax
+		add %edx, %eax
+		sub %ebx, %eax
 		mov %eax, a
-
+		mov e, %eax
+		
 		sub $1000, %ebx
 		add $500, %ecx
 		cmp %ebx, %ecx
-		sub $1000, %ecx
-		add $1000, %ebx
-		ja si
-		jna sinon
-
-	si:	cmp %ebx, %ecx
-		jnae sisi
-		jmp inc
-
-	sisi:	sub $500, %ebx
-		jmp inc
-
-	sinon:	sub e, %ebx
-		add $500, %edx
-		jmp inc
 		
-	inc:	mov i, %eax	#redonner a eax la valeur de i initiale
-		add $1, %eax	#incrementation
-		mov %eax, i	#sauvegarder la nv valeur ds i
+		mov b, %ebx
+		mov c, %ecx
+		
+		ja si
+		jmp sinon
+		jmp next
+
+	si:
+		
+		sub $500, %ecx
+		mov %ecx, c
+
+		cmp %ebx, %ecx
+		jnae sisi
+		jmp next
+	
+	sisi:
+
+		sub $500, %ebx
+		mov %ebx, b
+		jmp next
+
+	sinon:
+
+		mov e, %esi
+		sub %esi, %ebx
+		mov %ebx, b
+		
+		add $500, %edx
+		mov %edx, d
+
+		jmp next		
+		
+	next:
+		mov i, %edi
+		cmp $10, %edi
+		ja done
 		jmp boucle
 
-	done:	ret
+	done:	
+		mov %eax, a
+		ret
 

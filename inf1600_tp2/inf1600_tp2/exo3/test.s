@@ -9,9 +9,9 @@ func_s:
 
 		mov i, %eax
 		mov max, %ebx
-		cmp %ebx, %eax		#compare i et max (max - i)
+		cmp %eax, %ebx		#compare i et max (max - i)
 		mov a, %eax
-		ja done			#si max est depasse, on est done
+		jnae done			#si max est depasse, on est done
 
 		mov e, %eax			
 		mov d, %edx			#edx = d
