@@ -60,11 +60,12 @@ func_s:
 		
 	next:
 		mov i, %edi
-		cmp $10, %edi
+		cmp $9, %edi
 		ja done
 		jmp boucle
 
 	done:	
+		mov a, %eax
 		mov %eax, a
 		ret
 
