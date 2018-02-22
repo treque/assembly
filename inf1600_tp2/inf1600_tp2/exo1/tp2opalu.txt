@@ -9,7 +9,7 @@
 C	4A
 
 # Opcode 0xe ("nand") :
-E	00	# <À MODIFIER>
+E	07
 
 # Contrôle de l'UAL (1) : A + bus B
 20	4A 4A 4A 4A 4A 4A 4A 4A 4A 4A 4A 4A 4A 4A 4A 4A 4A 4A 4A 4A 4A 4A 4A 4A 4A 4A 4A 4A 4A 4A 4A 4A

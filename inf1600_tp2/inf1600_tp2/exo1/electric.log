@@ -1,25 +1,46 @@
 Electric Version 8.05
 --------------- 0 --------------
-  Mon Feb 19 20:03:30 EST 2018
+  Wed Feb 21 20:54:07 EST 2018
 Menu Activated: File | Open Library...
 --------------- 1 --------------
-  Mon Feb 19 20:03:38 EST 2018
-ProcessKeyBinding 401 when=1519088618680 modifiers=80 code=11 char=ffff false false
+  Wed Feb 21 20:54:24 EST 2018
+Menu Activated: Tool | Simulation (Built-in) | Restore Stimuli from Disk...
 --------------- 2 --------------
-  Mon Feb 19 20:03:40 EST 2018
-ProcessKeyBinding 402 when=1519088620496 modifiers=0 code=11 char=ffff false false
+  Wed Feb 21 20:54:30 EST 2018
+Menu Activated: Tool | Simulation (Built-in) | ALS: Simulate Current Cell
 --------------- 3 --------------
-  Mon Feb 19 20:03:45 EST 2018
-ProcessKeyBinding 401 when=1519088625712 modifiers=80 code=11 char=ffff false false
+  Wed Feb 21 20:54:34 EST 2018
+Menu Activated: Tool | Simulation (Built-in) | Restore Stimuli from Disk...
 --------------- 4 --------------
-  Mon Feb 19 20:03:45 EST 2018
-ProcessKeyBinding 402 when=1519088625880 modifiers=0 code=11 char=ffff false false
+  Wed Feb 21 20:56:57 EST 2018
+Menu Activated: Tool | Simulation (Built-in) | ALS: Simulate Current Cell
 --------------- 5 --------------
-  Mon Feb 19 20:04:14 EST 2018
-Menu Activated: Edit | Modes | Edit | Toggle Zoom
+  Wed Feb 21 20:57:02 EST 2018
+Menu Activated: Tool | Simulation (Built-in) | Restore Stimuli from Disk...
 --------------- 6 --------------
-  Mon Feb 19 20:04:29 EST 2018
-Menu Activated: Edit | Modes | Edit | Toggle Pan
+  Wed Feb 21 20:58:27 EST 2018
+Menu Activated: Tool | Simulation (Built-in) | ALS: Simulate Current Cell
 --------------- 7 --------------
-  Mon Feb 19 20:14:29 EST 2018
-Menu Activated: Edit | Modes | Edit | Click/Zoom/Wire
+  Wed Feb 21 20:58:37 EST 2018
+Menu Activated: Tool | Simulation (Built-in) | ALS: Simulate Current Cell
+--------------- 8 --------------
+  Wed Feb 21 20:58:43 EST 2018
+Menu Activated: Tool | Simulation (Built-in) | Restore Stimuli from Disk...
+--------------- 9 --------------
+  Wed Feb 21 20:58:54 EST 2018
+ProcessKeyBinding 402 when=1519264734386 modifiers=0 code=27 char=ffff false false
+--------------- 10 --------------
+  Wed Feb 21 20:58:55 EST 2018
+Menu Activated: Edit | Modes | Edit | Toggle Pan
+--------------- 11 --------------
+  Wed Feb 21 20:59:02 EST 2018
+Menu Activated: Tool | Simulation (Built-in) | Update Simulation Window
+--------------- 12 --------------
+  Wed Feb 21 20:59:30 EST 2018
+Menu Activated: Edit | Modes | Movement | Quarter motion
+--------------- 13 --------------
+  Wed Feb 21 20:59:33 EST 2018
+Menu Activated: Tool | Simulation (Built-in) | Update Simulation Window
+--------------- 14 --------------
+  Wed Feb 21 21:00:07 EST 2018
+Menu Activated: Tool | Simulation (Built-in) | Update Simulation Window
