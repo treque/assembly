@@ -4,10 +4,10 @@
 /* Modifiez ces définitions à votre guise afin de tester toutes les
 conditions; elles correspondent aux valeurs initiales de a, b, c, d et e : */
 #define INIT_A	0
-#define INIT_B	-500
-#define INIT_C	-5002
-#define INIT_D	50042
-#define INIT_E	1003
+#define INIT_B	1000
+#define INIT_C	-50389
+#define INIT_D	54
+#define INIT_E	-4
 
 int a, b, c, d, e;
 

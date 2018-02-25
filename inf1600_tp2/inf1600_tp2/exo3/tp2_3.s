@@ -1,10 +1,10 @@
 .data
 	i: .int 0
 
-.global func_s				#par respect des conventions,
-					#eax et edx sont utilise pour
-					#les operations, puis ecx pour
-					#le compteur
+.global func_s			#par respect des conventions,
+				#eax et edx sont utilise pour
+				#les operations, puis ecx pour
+				#le compteur
 
 func_s:
 
@@ -20,19 +20,23 @@ boucle:
         movl    b, %eax
         subl    %eax, %edx
         movl    %edx, %eax
-        movl    %eax, a			#sauvegarde de a
+        movl    %eax, a		#sauvegarde de a
 
         movl    b, %edx
-		subl	$1000, %edx
+	subl	$1000, %edx
 
         movl    c, %eax
         addl    $500, %eax
 
-		addl	$50000, %edx  #afin d'eviter des erreurs de signes dans les comparaisons, nous nous assurons davoir des valeurs positives.
-		addl	$50000, %eax		#une valeur de 50000 nous a semble raisonnable.
-
+	addl	$50000, %edx  	#car les operateurs imposés concernent des chiffres non-signés
+	addl	$50000, %eax	#et que nous voulons respecter les consignes et utiliser ces opérateurs
+				#tout en respectant le fait que a, b, c, d et e sont signés sur 32 bits.
+				#idéalement, on aurait utilisé les opérateurs jge plutôt que jae, et par
+				#extension, remplacé tout les "a" des jump par des "g", parce qu'above et
+				#greater sont deux choses complètement différentes.
+		
         cmpl    %eax, %edx
-        jae     sinon			#saute si edx est plus grand que eax
+        jae     sinon		#saute si edx est plus grand que eax
 
         movl    c, %eax
         subl    $500, %eax
@@ -42,10 +46,10 @@ boucle:
         movl    c, %eax
         
         addl	$50000, %edx
-		addl	$50000, %eax
+	addl	$50000, %eax
         
         cmpl    %eax, %edx
-        jna     inc			# saute si b est plus petit que c
+        jna     inc		# saute si b est plus petit que c
 
         movl    b, %eax
         subl    $500, %eax
@@ -71,6 +75,6 @@ inc:
 comp:
 
         cmpl    $10, %ecx
-        jna     boucle			#retourne dans la boucle si i est plus petit ou egal a 0
+        jna     boucle		#retourne dans la boucle si i est plus petit ou egal a 0
 
         ret
