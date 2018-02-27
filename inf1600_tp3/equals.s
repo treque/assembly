@@ -13,11 +13,11 @@ matrix_equals_asm:
 		jmp verificationR
 	
 		for:
-			mov -4(%ebp), %edx		#copie r dans edx
+			movl -4(%ebp), %edx		#copie r dans edx
 			imul 16(%ebp), %edx		#multiplication edx <- edi(matorder) * edx
 			addl -8(%ebp), %edx		 #addition edx <- ecx (c) + edx
-			mov 8(%ebp,%edx,4), %ecx
-			mov 12(%ebp,%edx,4), %edx
+			movl 8(%ebp,%edx,4), %ecx
+			movl 12(%ebp,%edx,4), %edx
 			cmp %ecx, %edx
 			je incrementationC		#si egale, on skip le return
 			movl $0, %eax				#mov cte se fait?? mise de valeur 0 pr return
@@ -50,8 +50,8 @@ matrix_equals_asm:
 
 
 		fin:
-			add $8, %esp
-			mov -4(%ebp), %eax
+			addl $8, %esp
+			movl -4(%ebp), %eax
 			
 			leave          /* Restore ebp and esp */
 			ret            /* Return to the caller */
