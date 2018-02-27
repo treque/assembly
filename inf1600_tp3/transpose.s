@@ -10,7 +10,7 @@ matrix_transpose_asm:
         /* none to save, only using eax, edx and ecx */
         
         /* Making room for r and c and initialize (local vars)*/
-        subl %8, %esp
+        subl $8, %esp
         movl $0, -4(%ebp)			#r
         movl $0, -8(%ebp)			#c
         

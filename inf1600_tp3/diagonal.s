@@ -5,22 +5,11 @@ matrix_diagonal_asm:
         mov %esp, %ebp 			/* Set ebp to current esp */
 
 
-
-   for(r = 0; r < matorder; ++r) {
-      for(c = 0; c < matorder; ++c) {
-		if(c == r){
-			outmatdata[c + r * matorder] = inmatdata[c + r * matorder];
-		} 
-        else{
-			outmatdata[c + r * matorder] = 0;
-		}
-      }
-      
         /*Saving live registers selon gcc calling conventions*/
         /* none to save, only using eax, edx and ecx */
         
         /* Making room for r and c and initialize (local vars)*/
-        subl %8, %esp
+        subl $8, %esp
         movl $0, -4(%ebp)			#r
         movl $0, -8(%ebp)			#c
         
