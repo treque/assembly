@@ -6,10 +6,6 @@ matrix_diagonal_asm:
 
 
 
-	void matrix_diagonal(const int* inmatdata, int* outmatdata, int matorder) {
-   /* Variables */
-   int r, c; /* Row/column indices */
-   /* Go through the matrix elements */
    for(r = 0; r < matorder; ++r) {
       for(c = 0; c < matorder; ++c) {
 		if(c == r){
@@ -19,8 +15,7 @@ matrix_diagonal_asm:
 			outmatdata[c + r * matorder] = 0;
 		}
       }
-   }
-
+      
         /*Saving live registers selon gcc calling conventions*/
         /* none to save, only using eax, edx and ecx */
         
@@ -32,20 +27,29 @@ matrix_diagonal_asm:
         jmp condr
    
 boucle:
-
-		/* stade de comparaison, valeur indexation dans ecx */
-		movl -8(%ebp), %ecx				# c dans ecx
-		imul 16(%ebp), %ecx				# ecx * matorder
-		addl -4(%ebp), %ecx				# ecx + r
 		
-		movl 8(%ebp, %ecx, 4),%eax		# 8 + ebp + ecx*4 (cote droit, inmat)
+		movl -4(%ebp), %eax
+		movl -8(%ebp), %edx
+		cmp %eax, %edx
+		jne else
 		
+		/*valeur indexation dans ecx, affectation sur la diagonale */
 		movl -4(%ebp), %ecx				# r dans ecx
 		imul 16(%ebp), %ecx				# ecx * matorder
 		addl -8(%ebp), %ecx				# ecx + c
 		
+		movl 8(%ebp, %ecx, 4),%eax		# 8 + ebp + ecx*4 (cote droit, inmat)	
 		movl %eax, 12(%ebp, %ecx, 4)	# inmat dans 12 + ebp + ecx*4 (cote gauche, outmat)
-
+		
+		jmp incc
+		
+else:
+		/*affection par 0*/
+		movl -4(%ebp), %ecx				# r dans ecx
+		imul 16(%ebp), %ecx				# ecx * matorder
+		addl -8(%ebp), %ecx				# ecx + c
+		
+		movl $0, 12(%ebp, %ecx, 4)
 
 incc:
 
