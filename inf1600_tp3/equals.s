@@ -6,14 +6,14 @@ matrix_equals_asm:
 		
 		subl $4, %esp #espace pr valeur de retour
 		
-		pushl 8(%esp)  #empile inmatdata1 
-		pushl 12(%ebp) #empile inmatdata2
+		#pushl 8(%esp)  #empile inmatdata1 
+		#pushl 12(%ebp) #empile inmatdata2		pas besoin??
 
 		mov $0, %ebx # initialisation de r
 		mov $0, %ecx #	et de c
 		mov matorder, %edi # maximum de r et de c 
 		
-		jmp incrementationR	#pcq ++r... so r incrementer avant de rentrer dans boucle? not sure
+		jmp verificationR
 	
 		for:
 			mov %ebx, %edx	#copie r dans edx
@@ -26,19 +26,19 @@ matrix_equals_asm:
         
         verificationR:
 			cmpl %edi, %ebx  #r < max == r - max < 0
-			jnge incrementationC	#si ca respecte, on verifie pr c
+			jnge incrementationR	#si ca respecte, on verifie pr c
 			mov $1, $eax			#si la boucleR a fini sans avoir rentrer dans le if, return est a 1
-			jmp fin					#sinon, c la fin
+			jmp fin					#fin de la boucle si ne respecte pas comparaison
 			 			
 		verificationC:
 			cmpl %edi, %ecx #c < max == c - max < 0
-			jnge for				$si ca respecte, on rentre dans la boucle pr le if
+			jnge for				#si ca respecte, on rentre dans la boucle pr le if
 			mov $0, %ecx	#remise a zero lorsquon recommence boucleR
 			jmp verificationR	#il faut verifier si R continue ou non
 			
 		incrementationR:
 			addl $1, %ebx
-			jmp verificationR
+			jmp verificationC
 			
 		incrementationC:
 			addl $1, %ebx
@@ -46,7 +46,7 @@ matrix_equals_asm:
 
 
 		fin:
-			add $8, %ebp	 #depile les param
+			#add $8, %ebp	 #depile les param --> ms non necessaire? (voir l. 9-10)
 			mov -4(%ebp), %eax
 			mov %ebp, %esp
 			pop %ebp
