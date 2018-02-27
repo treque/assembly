@@ -18,7 +18,7 @@ matrix_transpose_asm:
    
 boucle:
 
-		/* stade de comparaison, valeur indexation dans ecx */
+		/* valeur indexation dans ecx */
 		movl -8(%ebp), %ecx				# c dans ecx
 		imul 16(%ebp), %ecx				# ecx * matorder
 		addl -4(%ebp), %ecx				# ecx + r
@@ -29,6 +29,7 @@ boucle:
 		imul 16(%ebp), %ecx				# ecx * matorder
 		addl -8(%ebp), %ecx				# ecx + c
 		
+		/* affectation */
 		movl %eax, 12(%ebp, %ecx, 4)	# inmat dans 12 + ebp + ecx*4 (cote gauche, outmat)
 
 
