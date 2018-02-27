@@ -51,6 +51,7 @@ matrix_equals_asm:
 
 		fin:
 			addl $8, %esp
+			mov %eax, -4(%ebp)
 			movl -4(%ebp), %eax
 			
 			leave          /* Restore ebp and esp */
