@@ -24,13 +24,18 @@ matrix_equals_asm:
 			jmp fin						#des que return 0, on arrete la fct
         
         verificationR:
-			cmpl 16(%ebp),-4(%ebp)  #r < max == r - max < 0
+			movl 16(%ebp), %eax
+			movl -4(%ebp), %edx
+			cmpl %eax, %edx  #r < max == r - max < 0
 			jnge incrementationR	#si ca respecte, on verifie pr c
 			movl $1, %eax			#si la boucleR a fini sans avoir rentrer dans le if, return est a 1
 			jmp fin					#fin de la boucle si ne respecte pas comparaison
 			 			
 		verificationC:
-			cmpl 16(%ebp),-8(%ebp) #c < max == c - max < 0
+
+			movl 16(%ebp), %eax
+			movl -8(%ebp), %edx
+			cmpl %eax,%edx #c < max == c - max < 0
 			jnge for				#si ca respecte, on rentre dans la boucle pr le if
 			movl $0, -8(%ebp)	#remise a zero lorsquon recommence boucleR
 			jmp verificationR	#il faut verifier si R continue ou non
@@ -45,9 +50,8 @@ matrix_equals_asm:
 
 
 		fin:
-			#add $8, %ebp	 #depile les param --> ms non necessaire? (voir l. 9-10)
+			add $8, %esp
 			mov -4(%ebp), %eax
-			mov %ebp, %esp
-			pop %ebp
+			
 			leave          /* Restore ebp and esp */
 			ret            /* Return to the caller */
