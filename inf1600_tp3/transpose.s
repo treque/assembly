@@ -2,61 +2,66 @@
 
 matrix_transpose_asm:
 
-        push %ebp      /* save old base pointer */
-        mov %esp, %ebp /* set ebp to current esp */
+        	push %ebp      /* save old base pointer */
+        	mov %esp, %ebp /* set ebp to current esp */
         
         
-        /*Saving live registers selon gcc calling conventions*/
-        /* none to save, only using eax, edx and ecx */
+        	/*Saving live registers selon gcc calling conventions*/
+        	pushl %edi
+		pushl %esi
         
-        /* Making room for r and c and initialize (local vars)*/
-        subl $8, %esp
-        movl $0, -4(%ebp)			#r
-        movl $0, -8(%ebp)			#c
+        	/* Making room for r and c and initialize (local vars)*/
+        	subl $8, %esp
+        	movl $0, -12(%ebp)			#r
+        	movl $0, -16(%ebp)			#c
         
-        jmp condr
+        	jmp condr
    
 boucle:
 
 		/* valeur indexation dans ecx */
-		movl -8(%ebp), %ecx				# c dans ecx
+		movl -16(%ebp), %ecx				# c dans ecx
 		imul 16(%ebp), %ecx				# ecx * matorder
-		addl -4(%ebp), %ecx				# ecx + r
+		addl -12(%ebp), %ecx				# ecx + r -- in
 		
-		movl 8(%ebp, %ecx, 4),%eax		# 8 + ebp + ecx*4 (cote droit, inmat)
+		movl 8(%ebp), %esi
+		movl (%esi, %ecx, 4), %eax			#mettre cote gauche dans eax pour l'affectation
 		
-		movl -4(%ebp), %ecx				# r dans ecx
+		movl -12(%ebp), %ecx				# r dans ecx
 		imul 16(%ebp), %ecx				# ecx * matorder
-		addl -8(%ebp), %ecx				# ecx + c
+		addl -16(%ebp), %ecx				# ecx + c -- out
 		
 		/* affectation */
-		movl %eax, 12(%ebp, %ecx, 4)	# inmat dans 12 + ebp + ecx*4 (cote gauche, outmat)
-
+		movl 12(%ebp), %edi
+		movl %eax, (%edi, %ecx, 4)			# P O RU QOIO
 
 incc:
 
-		addl $1, -8(%ebp)
+		addl $1, -16(%ebp)
        
 condc:
 
-		movl -8(%ebp), %eax
+		movl -16(%ebp), %eax
 		movl 16(%ebp), %edx
 		cmp %eax, %edx
-		ja boucle						#boucle as long as matorder is above c
+		ja boucle					#boucle as long as matorder is above c
+		movl $0, -16(%ebp)
 
 incr:
 
-		addl $1, -4(%ebp)
+		addl $1, -12(%ebp)
 
 condr:
 
-		movl -4(%ebp), %eax
+		movl -12(%ebp), %eax
 		movl 16(%ebp), %edx
 		cmp %eax, %edx
-		ja condc						#2e for as long as matorder is above r
+		ja condc					#2e for as long as matorder is above r
         
 		/* aucun retour, rien a mettre dans %eax */
-		/* desalloue r et c, comme un pop sans pop */
 		addl $8, %esp
-        leave          /* restore ebp and esp */
-        ret            /* return to the caller */
+		popl %esi
+		popl %edi
+
+       		leave          /* restore ebp and esp */
+        	ret            /* return to the caller */

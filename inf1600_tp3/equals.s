@@ -1,58 +1,69 @@
 .globl matrix_equals_asm
 
 matrix_equals_asm:
-        push %ebp      /* Save old base pointer */
-        mov %esp, %ebp /* Set ebp to current esp */	
+
+       		push %ebp      /* Save old base pointer */
+        	mov %esp, %ebp /* Set ebp to current esp */
+
+
+		pushl %edi
+		pushl %esi
+
+        	subl $8, %esp
+        	movl $0, -12(%ebp)			#r
+        	movl $0, -16(%ebp)			#c
+        
+        	jmp condr
+   
+boucle:
+
+		/* valeur indexation dans ecx */	
+		movl -12(%ebp), %ecx				# r dans ecx
+		imul 16(%ebp), %ecx				# ecx * matorder
+		addl -16(%ebp), %ecx				# ecx + c
 		
-        /* Making room for r and c and initialize (local vars)*/
-        
-                subl $8, %esp
-        movl $0, -4(%ebp)			#r
-        movl $0, -8(%ebp)			#c 
-        
-		jmp verificationR
-	
-		for:
-			movl -4(%ebp), %edx		#copie r dans edx
-			imul 16(%ebp), %edx		#multiplication edx <- edi(matorder) * edx
-			addl -8(%ebp), %edx		 #addition edx <- ecx (c) + edx
-			movl 8(%ebp,%edx,4), %ecx
-			movl 12(%ebp,%edx,4), %edx
-			cmp %ecx, %edx
-			je incrementationC		#si egale, on skip le return
-			movl $0, %eax				#mov cte se fait?? mise de valeur 0 pr return
-			jmp fin						#des que return 0, on arrete la fct
-        
-        verificationR:
-			movl 16(%ebp), %eax
-			movl -4(%ebp), %edx
-			cmpl %eax, %edx  #r < max == r - max < 0
-			jnge incrementationR	#si ca respecte, on verifie pr c
-			movl $1, %eax			#si la boucleR a fini sans avoir rentrer dans le if, return est a 1
-			jmp fin					#fin de la boucle si ne respecte pas comparaison
-			 			
-		verificationC:
+		/* comparaison if */
+		movl 8(%ebp), %esi
+		movl 12(%ebp), %edi
 
-			movl 16(%ebp), %eax
-			movl -8(%ebp), %edx
-			cmpl %eax,%edx #c < max == c - max < 0
-			jnge for				#si ca respecte, on rentre dans la boucle pr le if
-			movl $0, -8(%ebp)	#remise a zero lorsquon recommence boucleR
-			jmp verificationR	#il faut verifier si R continue ou non
-			
-		incrementationR:
-			addl $1, -4(%ebp)
-			jmp verificationC
-			
-		incrementationC:
-			addl $1, -8(%ebp)
-			jmp verificationC
+		movl (%esi, %ecx, 4), %eax			
+		movl (%edi, %ecx, 4), %edx
+		cmp %eax, %edx
 
+		je incc
 
-		fin:
-			addl $8, %esp
-			mov %eax, -4(%ebp)
-			movl -4(%ebp), %eax
+		addl $8, %esp
+		movl $0, %eax
+		leave
+		ret
+
+incc:
+
+		addl $1, -16(%ebp)
+       
+condc:
+
+		movl -16(%ebp), %eax
+		movl 16(%ebp), %edx
+		cmp %eax, %edx
+		ja boucle
+		movl $0, -16(%ebp) 
+incr:
+
+		addl $1, -12(%ebp)
+
+condr:
+
+		movl -12(%ebp), %eax		#r
+		movl 16(%ebp), %edx		#matorder 
+		cmp %eax, %edx
+		ja condc			#2e for as long as matorder is above r
+        
+		addl $8, %esp
+		pop %esi
+		pop %edi
+		
+		movl $1, %eax
 			
-			leave          /* Restore ebp and esp */
-			ret            /* Return to the caller */
+		leave          /* Restore ebp and esp */
+		ret            /* Return to the caller */
